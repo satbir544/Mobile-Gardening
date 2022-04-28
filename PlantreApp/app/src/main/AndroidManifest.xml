@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.plantreapp">
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:icon="@mipmap/planterlogo_foreground"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/planterlogo_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PlantreApp">
+        <activity android:name=".register.RegisterActivity" android:exported="false"/>
+        <activity android:name=".login.LoginActivity" android:exported="false"/>
+        <activity
+            android:name=".myPlants.SelectPlantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".onBoarding.OnBoardingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".myPlants.PlantInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".myPlants.AddPlantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".connection.ConnBtnActivity"
+            android:exported="false" />
+        <activity
+            android:name=".progressBar.MyProgressBar"
+            android:exported="false" />
+        <activity
+            android:name=".myPlants.MyPlantsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".logs.AddLogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".logs.LogsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".logs.NoteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".journals.JournalsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".connection.ConnectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".search.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".search.DBPlantInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+
+        <receiver android:name="com.example.plantreapp.TimerSystemBoot"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".TimerService" />
+    </application>
+
+</manifest>
